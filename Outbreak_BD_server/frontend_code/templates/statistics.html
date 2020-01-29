@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}新型冠状病毒 2019-nCoV 城市感染情况分析{% endblock %}
+{% block body %}
+<br>
+<h3> <center>新型冠状病毒 2019-nCoV 城市感染情况分析</center> </h3>
+<!--<div id="main" style="width: 1000px;height:600px;"></div>-->
+<script type="text/javascript" src="static/js/echarts-mini.js"></script>
+<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+<br>
+<br>
+<br>
+{{ myechart | safe }}
+{% endblock %}

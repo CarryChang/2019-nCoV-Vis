@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}新型冠状病毒 2019-nCoV 动态信息{% endblock %}
+{% block body %}
+<link rel="stylesheet" type="text/css" href="/static/css/timeline.css">
+<br>
+<h3>  新型冠状病毒 2019-nCoV 实时信息 </h3>
+<div class="content">
+	<article>
+		{% for new in news %}
+			<section>
+				<span class="point-time point-red"></span>
+				<time datetime="{{ new.pubDate }}">
+					<span>{{ new.pubDate }}</span>
+					<span>{{ new.infoSource }}</span>
+					<span>{{ new.provinceName }}</span>
+
+				</time>
+				<aside>
+					<a href=" {{ new.sourceUrl }}"><p class="things">{{ new.title }}</p></a>
+					<p class="brief"><span class="text-black">	{{ new.summary[:30] }}</span>...</p>
+				</aside>
+			</section>
+		{% endfor %}
+	</article>
+</div>
+{% endblock %}

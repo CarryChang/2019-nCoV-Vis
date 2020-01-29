@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}新型冠状病毒 2019-nCoV 感染分布情况分析{% endblock %}
+{% block body %}
+<br>
+<h3> <center>新型冠状病毒 2019-nCoV 疫情分布情况</center> </h3>
+<!--<div id="main" style="width: 1000px;height:600px;"></div>-->
+<script type="text/javascript" src="static/js/echarts-mini.js"></script>
+<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+<!--<script type="text/javascript" src="static/js/echarts-mini.js"></script>-->
+<script src="http://api.map.baidu.com/getscript?v=3.0&ak="></script>
+<script src="https://cdn.staticfile.org/echarts/4.6.0/echarts.min.js"></script>
+<script src="static/js/china.js"></script>
+<br>
+<br>
+<br>
+{{ myechart | safe }}
+{% endblock %}

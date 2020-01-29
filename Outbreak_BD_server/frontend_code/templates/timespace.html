@@ -1,0 +1,288 @@
+{% extends "base.html" %}
+{% block title %}新型冠状病毒 2019-nCoV 感染情况时空分析{% endblock %}
+{% block body %}
+<br>
+<h3> <center>新型冠状病毒 2019-nCoV 感染情况时空分析</center> </h3>
+<br>
+<br>
+<br>
+<div id="main" style="width: 1000px;height:600px;"></div>
+<input type="hidden" id ="OutPut" name ="OutPut"  value="{{ li  | safe}}">
+<!--<script type="text/javascript" src="static/js/echarts-all.js"></script>-->
+<script type="text/javascript" src="static/js/echarts-mini.js"></script>
+<script src="http://api.map.baidu.com/getscript?v=3.0&ak="></script>
+<script src="https://cdn.staticfile.org/echarts/4.6.0/echarts.min.js"></script>
+<script src="static/js/china.js"></script>
+<script type="text/javascript" >
+     var myChart = echarts.init(document.getElementById('main'));
+     //load data
+     var data = [{
+                 "time": 2000,
+                 "data": [{
+                     "name": "重庆",
+                     "value": [103, "重庆"]
+                 }, {
+                     "name": "河南",
+                     "value": [200,  "河南"]
+                 } ,{
+                     "name": "河北",
+                     "value": [201,  "河北"]
+                 } ]
+             },{
+                 "time": 2010,
+                 "data": [{
+                     "name": "重庆",
+                     "value": [101, "重庆"]
+                 }, {
+                     "name": "湖北",
+                     "value": [100,  "湖北"]
+                 } ]
+             }];
+             var option = {
+                 backgroundColor: '#404a59',
+                 // backgroundColor: 'rgba(255,255,255)',
+                 baseOption: {
+                     //自己刷新
+                     animationDurationUpdate: 1000,
+                     animationEasingUpdate: 'quinticInOut',
+                     timeline: {
+                         axisType: 'category',
+                         orient: 'vertical',
+                         autoPlay: true,
+                         inverse: true,
+                         playInterval: 5000,
+                         left: null,
+                         right: 5,
+                         top: 10,
+                         bottom: 20,
+                         width: 46,
+                         height: null,
+                         label: {
+                             normal: {
+                                 textStyle: {
+                                     color: '#ddd'
+                                 }
+                             },
+                             emphasis: {
+                                 textStyle: {
+                                     color: '#fff'
+                                 }
+                             }
+                         },
+                         symbol: 'none',
+                         lineStyle: {
+                             color: '#555'
+                         },
+                         checkpointStyle: {
+                             color: '#bbb',
+                             borderColor: '#777',
+                             borderWidth: 1
+                         },
+                         controlStyle: {
+                             showNextBtn: true,
+                             showPrevBtn: true,
+                             normal: {
+                                 color: '#666',
+                                 borderColor: '#666'
+                             },
+                             emphasis: {
+                                 color: '#aaa',
+                                 borderColor: '#aaa'
+                             }
+                         },
+                         data: data.map(function(ele) {
+                             return ele.time
+                         })
+                     },
+                     backgroundColor: '#404a59',
+                     title: {
+                         // text: '新型冠状病毒 2019-nCoV 感染情况时空分析',
+                         left: 'center',
+                         top: 'top',
+                         textStyle: {
+                             fontSize: 10,
+                             color: 'rgba(255,255,255)'
+                         }
+                     },
+                     tooltip: {
+                         formatter: function(params) {
+                             if ('value' in params.data) {
+                                 return params.data.value[0];
+                             }
+                         }
+                     },
+                     grid: {
+                         // left: 1,
+                         left: '5%',
+                         right: '5%',
+                         top: '65%',
+                         bottom: 0
+                     },
+                     xAxis: {},
+                     yAxis: {},
+                     series: [{
+                         id: 'map',
+                         type: 'map',
+                         mapType: 'china',
+                         top: '5%',
+                         //bottom: '25%',
+                         left: '25%',
+                         right: '5%',
+                         itemStyle: {
+                             normal: {
+                                 areaColor: '#323c48',
+                                 borderColor: '#404a59'
+                             },
+                             emphasis: {
+                                 label: {
+                                     show: true
+                                 },
+                                 // areaColor: 'rgba(255,255,255)'
+                             }
+                         },
+                         data: []
+                     }, {
+                         id: 'bar',
+                         type: 'bar',
+                         tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'shadow'
+                        }
+                    },
+                         label: {
+                             normal: {
+                                 show: true,
+                                 // position: 'right',
+                                 textStyle: {
+                                     color: '#ddd'
+                                 }
+                             }
+                         },
+                         data: []
+                     },
+                         {
+                         id: 'pie',
+                         type: 'pie',
+                         radius: ['12%', '20%'],
+                         center: ['13%', '15%'],
+                         roseType: 'area',
+                         tooltip: {
+                             formatter: '{b} {d}%'
+                         },
+                         data: [],
+                         label: {
+                             normal: {
+                                 textStyle: {
+                                     color: '#ddd'
+                                 }
+                             }
+                         },
+                         labelLine: {
+                             normal: {
+                                 lineStyle: {
+                                     color: '#ddd'
+                                 }
+                             }
+                         },
+                         itemStyle: {
+                             normal: {
+                                 borderColor: 'rgba(0,0,0,0.8)',
+                                 borderSize: 1
+                             }
+                         }
+                     }]
+                 },
+                 options: []
+             };
+             for (var i = 0; i < data.length; i++) {
+                 // var restPercent = 100;
+                 // var restValue = 0;
+                 // data[i].data.forEach(function(ele) {
+                 //     restPercent = restPercent - ele.value[1];
+                 // });
+                 // restValue = data[i].data[0].value[0] * (restPercent / data[i].data[0].value[1]);
+                 // console.log(restPercent);
+                 // console.log(restValue);
+                 option.options.push({
+                     visualMap: [{
+                         show: true,
+                         type: 'continuous',
+                         calculable: true,
+                         dimension: 1,
+                         left: 43,
+                         top: 'center',
+                         itemWidth: 15,
+                         // min: 0,
+                         // max: data[i].data[i].value[0],
+                         text: ['High', 'Low'],
+                         textStyle: {
+                             color: '#ddd'
+                         },
+                          "inRange": {
+                                "color": [
+                                    "#50a3ba",
+                                    "#eac763",
+                                    "#d94e5d"
+                                ]
+                            },
+                            inverse: false,
+                            orient: "vertical",
+                            showLabel: true,
+                            itemHeight: 100,
+                            borderWidth: 0
+                     }],
+                     xAxis: {
+                         type: 'value',
+                         boundaryGap: [0, 5],
+                         axisLabel: {
+                             show: true,
+                         },
+                         splitLine: {
+                             show: false
+
+                         }
+                     },
+                     yAxis: {
+                         type: 'category',
+                         axisLabel: {
+                             show: true,
+                             textStyle: {
+                                 color: '#ddd'
+                             }
+                         },
+
+                         data: data[i].data.map(function(ele) {
+                             return ele.value[1]
+                         }).reverse()
+                     },
+                     series: [{
+                         id: 'map',
+                         data: data[i].data
+                     }, {
+                         id: 'bar',
+                         label: {
+                             normal: {
+                                 position: 'right',
+                                 formatter: '{c}'
+                             }
+                         },
+                          data: data[i].data.map(function(ele) {
+                                return ele.value[0]
+                            }).sort(function(a, b) {
+                                return a > b
+                            })}, {
+                         id: 'pie',
+                         data: data[i].data.map(function(ele) {
+                             return {
+                                 name: ele.value[1],
+                                 value: ele.value
+                             }
+                         }),
+                     }]
+                 })
+             }
+         // // 使用刚指定的配置项和数据显示图表
+    myChart.setOption(option);
+</script>
+{% endblock %}

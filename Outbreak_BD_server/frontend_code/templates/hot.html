@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}新型冠状病毒 2019-nCoV 感染情况时间序列分析{% endblock %}
+{% block body %}
+<br>
+<h3> <center>新型冠状病毒 2019-nCoV 感染情况实时时间序列</center> </h3>
+<br>
+<br>
+<br>
+<div id="main" style="width: 1000px;height:600px;"></div>
+<input type="hidden" id ="OutPut" name ="OutPut"  value="{{ li  | safe}}">
+<script src="static/js/jquery.js"></script>
+<script type="text/javascript" src="static/js/echarts-all.js"></script>
+<script type=text/javascript>
+    var obj =  $("#OutPut").val();
+    var objnew = obj.replace(/'/g, '"');
+    // console.log(obj);
+    var obj1 =  JSON.parse(objnew);
+    var time = obj1.time;
+    var confirmed = obj1.confirmed;
+    var title = obj1.title;
+    var suspect = obj1.suspect;
+    var cure = obj1.cure;
+    var dead = obj1.dead;
+    var myChart = echarts.init(document.getElementById('main'));
+    var option = {
+        title: {
+            text: title
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['确诊','疑似','治愈','死亡']
+        },
+        grid: {
+            // left: '3%',
+            // right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: time
+        },
+        yAxis: {
+            type: 'value',
+        },
+        series: [
+            {
+                name:'疑似',
+                type:'line',
+                data: suspect
+            },
+            {
+                name:'确诊',
+                type:'line',
+                data: confirmed
+            },
+              {
+                name:'治愈',
+                type:'line',
+                data:cure
+            },
+              {
+                name:'死亡',
+                type:'line',
+                data:dead
+            },
+        ]
+    };
+    // // 使用刚指定的配置项和数据显示图表
+    myChart.setOption(option);
+</script>
+{% endblock %}

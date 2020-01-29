@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {% block head %}{% endblock %}
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %} </title>
+    <link rel="shortcut icon" href="/static/favorite_ico/favicon.ico">
+    <!--<link rel="stylesheet" type="text/css" href="/static/css/news_style/demo(1).css">-->
+    <!--<link rel="stylesheet" type="text/css" href="/static/css/news_style/style.css">-->
+
+</head>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+    </div>
+    <div>
+        <a class="navbar-brand" href="/">RealTimeSeries</a>
+        <a class="navbar-brand" href="/predict">Predict</a>
+        <a class="navbar-brand" href="/map">Map</a>
+        <!--<a class="navbar-brand" href="/timespace">TimeSpace</a>-->
+        <!--<a class="navbar-brand" href="/city">City</a>-->
+        <a class="navbar-brand" href="/statistics">Statistics</a>
+        <a class="navbar-brand" href="/news">News</a>
+        <a class="navbar-brand" href="http://carrychang.top">Home</a>
+    </div></nav>
+<body background={{url_for('static', filename='image/bg51.jpg')}}>
+<center>
+{% block body %}
+{% endblock %}</center>
+</body>
+</html>

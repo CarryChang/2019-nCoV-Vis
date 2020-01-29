@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}新型冠状病毒 2019-nCoV 城市感染情况分析{% endblock %}
+{% block body %}
+<br>
+<h3> <center>新型冠状病毒 2019-nCoV 城市感染情况分析</center> </h3>
+<br>
+<br>
+<br>
+<div id="main" style="width: 1000px;height:600px;"></div>
+<script type="text/javascript" src="static/js/echarts-mini.js"></script>
+<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+<script type=text/javascript>
+    var myChart = echarts.init(document.getElementById('main'));
+    var data = [
+            [10, 2, 1],
+            [33, 22, 77]
+        ];
+    var cities = ['北京', '上海'];
+    var barHeight = 80;
+    // 指定图表的配置项和数据，存储省份和数量
+    var option = {
+            title: {
+                text: '新型冠状病毒 2019-nCoV 城市感染情况分析',
+            },
+            legend: {
+                show: true,
+                data: ['范围', '均值']
+            },
+            grid: {
+                top: 100
+            },
+            angleAxis: {
+                type: 'category',
+                data: cities
+            },
+            tooltip: {
+                show: true,
+                formatter: function (params) {
+                    var id = params.dataIndex;
+                    return cities[id] + '<br>最低：' + data[id][0] + '<br>最高：' + data[id][1] + '<br>平均：' + data[id][2];
+                }
+            },
+            radiusAxis: {
+            },
+            polar: {
+            },
+            series: [{
+                type: 'bar',
+                itemStyle: {
+                    color: 'transparent'
+                },
+                data: data.map(function (d) {
+                    return d[0];
+                }),
+                coordinateSystem: 'polar',
+                stack: '最大最小值',
+                silent: true
+            }, {
+                type: 'bar',
+                data: data.map(function (d) {
+                    return d[1] - d[0];
+                }),
+                coordinateSystem: 'polar',
+                name: '范围',
+                stack: '最大最小值'
+            }, {
+                type: 'bar',
+                itemStyle: {
+                    color: 'transparent'
+                },
+                data: data.map(function (d) {
+                    return d[2] - barHeight;
+                }),
+                coordinateSystem: 'polar',
+                stack: '均值',
+                silent: true,
+                z: 10
+            }, {
+                type: 'bar',
+                data: data.map(function () {
+                    return barHeight * 2;
+                }),
+                coordinateSystem: 'polar',
+                name: '均值',
+                stack: '均值',
+                barGap: '-100%',
+                z: 10
+            }]
+        };
+        // // 使用刚指定的配置项和数据显示图表
+    myChart.setOption(option);
+</script>
+{% endblock %}

@@ -1,0 +1,25 @@
+bs4==0.0.1
+echarts-china-cities-pypkg==0.0.9
+echarts-china-counties-pypkg==0.0.2
+echarts-china-misc-pypkg==0.0.1
+echarts-china-provinces-pypkg==0.0.3
+echarts-countries-pypkg==0.1.6
+echarts-united-kingdom-pypkg==0.0.1
+elasticsearch==7.5.1
+Flask==1.0.3
+Flask-RESTful==0.3.7
+gevent==1.4.0
+gunicorn==19.9.0
+Jinja2==2.10.3
+lxml==4.4.2
+MarkupSafe==1.1.1
+numpy==1.18.1
+pandas==0.24.2
+Pillow==7.0.0
+PyMySQL==0.9.3
+pytz==2019.3
+redis==3.3.11
+requests==2.22.0
+simplejson==3.17.0
+lml==0.0.2
+# pyecharts -U
