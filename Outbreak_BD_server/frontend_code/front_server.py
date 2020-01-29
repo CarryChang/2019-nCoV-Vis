@@ -45,19 +45,6 @@ def news():
     if request.method == 'GET':
         # 默认20条信息
         news = process_new(size=20)
-        # context = {
-        #     'news': [
-        #         {
-        #             'name': '三国演义',
-        #             'author': '罗贯中',
-        #             'price': 110
-        #         }, {
-        #             'name': '西游记',
-        #             'author': '吴承恩',
-        #             'price': 109
-        #         }
-        #     ]
-        # }
         return render_template('news.html', **news)
         # return render_template('news.html')
 @app.route('/statistics', methods=['GET','POST'])
