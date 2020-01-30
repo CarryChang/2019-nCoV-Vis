@@ -55,4 +55,6 @@
 
 <div align=center><img  src="https://github.com/CarryChang/2019-nCoV-Vis/blob/master/vis/news.png"></div>
 
- > 疫情实时预测：开发中（在中台加入机器学习模型，将结果写入redis，减少前端返回的延迟）
+ > 疫情实时预测，使用sklearn的回归模型，利用redis进行数据的存储
+ 
+ <div align=center><img  src="https://github.com/CarryChang/2019-nCoV-Vis/blob/master/vis/lr.png"></div>
