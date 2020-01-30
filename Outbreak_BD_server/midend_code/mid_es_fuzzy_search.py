@@ -7,7 +7,6 @@ def fuzzy_search(query_content,page,size):
     para = {'query_content': query_content, 'page': page, 'size': size}
     # 中台请求后台数据
     query = requests.post("http://localhost:8000/es_fuzzy_search", data=json.dumps(para)).json()
-    # query = requests.post("http://175.24.69.6:8000/es_fuzzy_search", data=json.dumps(para)).json()
     province_detail = {}
     province_detail_all_list = []
     for i in query['hits']['hits']:
