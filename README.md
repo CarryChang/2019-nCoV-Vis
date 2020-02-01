@@ -4,7 +4,7 @@
 
 ###  [2019-nCoV-Vis](http://carrychang.top)
 
-#### 基于网络大数据针对于2019-nCoV的数据可视化预测项目， 底层完全使用ElasticSearch-5.6集群进行数据存储，利用前中后台的配合完成新型冠状病毒的疫情发展时间序列可视化项目，方便观察疫情发展情况，并可以结合回归模型对疫情进行预测。
+#### 基于网络大数据针对于2019-nCoV的数据可视化预测项目， 底层完全使用ElasticSearch-5.6集群进行数据存储，利用前中后台的配合完成新型冠状病毒的疫情发展时间序列可视化项目，方便观察疫情发展情况，加入回归模型对疫情进行预测和散点聚类。
 
 >  ubuntu16下支持一键sh部署，flask使用Gunicorn进行部署，使用前后完全分离的开发模式 
 
@@ -58,3 +58,13 @@
  > 疫情实时预测，使用sklearn的回归模型，利用redis进行数据的存储
  
  <div align=center><img  src="https://github.com/CarryChang/2019-nCoV-Vis/blob/master/vis/lr.png"></div>
+ 
+> 疫情省份聚类
+ 
+ <div align=center><img  src="https://github.com/CarryChang/2019-nCoV-Vis/blob/master/vis/city_cluster.png"></div>
+ 
+> 疫情城市聚类
+ 
+ <div align=center><img  src="https://github.com/CarryChang/2019-nCoV-Vis/blob/master/vis/province_cluster.png"></div>
+ 
+ 
