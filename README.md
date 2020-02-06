@@ -42,6 +42,10 @@
 
 <div align=center><img  src="https://github.com/CarryChang/2019-nCoV-Vis/blob/master/vis/timeseries.png"></div>
 
+> 词云，使用结巴的百度双向RNN模型进行分词，提升分析精度，加载自定义词典，使用词性标注技术，只选取名词进行词云展示
+
+<div align=center><img  src="https://github.com/CarryChang/2019-nCoV-Vis/blob/master/vis/wordcloud.png"></div>
+
 
 > 感染城市地图
 
