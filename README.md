@@ -29,7 +29,7 @@
 > 2. 中台结合使用数据接口和机器学习接口的方法，对数据进行清洗计算和结果返回
 > 3. 后台使用es和爬虫作为数据存储和采集，使用ES集群保证源数据的接口的高并发和低响e应
 
-#### 后端ES集群信息存储
+#### 后端ES集群信息存储 
 
 <div align=center><img  src="https://github.com/CarryChang/2019-nCoV-Vis/blob/master/vis/es_data.png"></div>
 
