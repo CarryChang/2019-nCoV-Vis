@@ -34,7 +34,7 @@
 <div align=center><img  src="https://github.com/CarryChang/2019-nCoV-Vis/blob/master/vis/es_data.png"></div>
 
 #### 前端信息展示
-> 基于百度LBS的实时定位和周边疫情实时展示
+> 基于百度LBS的实时定位(解析实时的ip信息变成实时地理信息)和周边疫情实时展示
 
 <div align=center><img  src="https://github.com/CarryChang/2019-nCoV-Vis/blob/master/vis/reallocation.png"></div>
 
