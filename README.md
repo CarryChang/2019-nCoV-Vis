@@ -31,6 +31,11 @@
 
 #### 后端ES集群信息存储
 
+> 基于百度LBS的实时定位和周边疫情实时展示
+
+<div align=center><img  src="https://github.com/CarryChang/2019-nCoV-Vis/blob/master/vis/reallocation.png"></div>
+
+
 > 时间序列
 
 <div align=center><img  src="https://github.com/CarryChang/2019-nCoV-Vis/blob/master/vis/es_data.png"></div>
