@@ -30,7 +30,7 @@
 > 3. 后台使用es和爬虫作为数据存储和采集，使用ES集群保证源数据的接口的高并发和低响e应
 
 #### 后端ES集群信息存储 
-
+> [数据来自国家卫生应急办公室](http://www.nhc.gov.cn/yjb/pzhgli/new_list.shtml)
 <div align=center><img  src="https://github.com/CarryChang/2019-nCoV-Vis/blob/master/vis/es_data.png"></div>
 
 #### 前端信息展示
@@ -41,6 +41,12 @@
 > 时间序列
 
 <div align=center><img  src="https://github.com/CarryChang/2019-nCoV-Vis/blob/master/vis/timeseries.png"></div>
+<div align=center><img  src="https://github.com/CarryChang/2019-nCoV-Vis/blob/master/vis/timeline.png"></div>
+
+> 速率
+
+<div align=center><img  src="https://github.com/CarryChang/2019-nCoV-Vis/blob/master/vis/realrate.png"></div>
+
 
 > 词云，使用结巴的百度双向RNN模型进行分词，提升分析精度，加载自定义词典，使用词性标注技术，只选取名词进行词云展示
 
